@@ -1,5 +1,5 @@
-# Rethinking the Architecture Design for Efficient Generic Event  
-[Rethinking the Architecture Design for Efficient Generic Event  ](https://openreview.net/forum?id=sA2a5a5O4g&referrer=%5Bthe%20profile%20of%20Zechuan%20Zhang%5D(%2Fprofile%3Fid%3D~Zechuan_Zhang2)) , ACM MM 2024
+# Rethinking the Architecture Design for Efficient Generic Event  Boundary Detection
+[Rethinking the Architecture Design for Efficient Generic Event Boundary Detection  ](https://openreview.net/forum?id=sA2a5a5O4g&referrer=%5Bthe%20profile%20of%20Zechuan%20Zhang%5D(%2Fprofile%3Fid%3D~Zechuan_Zhang2)) , ACM MM 2024
 
 [Ziwei Zheng](https://openreview.net/profile?id=~Ziwei_Zheng1 "~Ziwei_Zheng1"), [Zechuan Zhang](https://openreview.net/profile?id=~Zechuan_Zhang2 "~Zechuan_Zhang2"),[Yulin Wang](https://openreview.net/profile?id=~Yulin_Wang1 "~Yulin_Wang1"),[Shiji Song](https://openreview.net/profile?id=~Shiji_Song1 "~Shiji_Song1"),[Gao Huang](https://openreview.net/profile?id=~Gao_Huang1 "~Gao_Huang1"),[Le Yang](https://openreview.net/profile?id=~Le_Yang2 "~Le_Yang2")
 
@@ -44,8 +44,9 @@ While training model with SoccerNet, use `EFFSoccerNet/SoccerNettrain.sh` instea
 ## Testing our trained model
 
 We only provide the checkpoint that generating our highest score in the paper[[download](https://drive.google.com/file/d/1S4M-xnKpjWFGBimcRYzlEDFhDsWQWF_-/view?usp=drive_link)]. Unzip the specific folder below to your project(make sure the following path 'EfficientGEBD/output/ablation/`$YOUR_UNZIPPED_DIR$`'):
+
 | _Method_| _Backbone_  | **F1 score** | _GFLOPs_ | _FPS_ |
-| :----: | :----: | :----: | :----: | :----: | :----: |
+| :----: | :----: | :----: | :----: | :----: |
 |  _BasicGEBD_ | ResNet50-L4  | **77.1** | 4.36 | 1562 |
 | _BasicGEBD_  | ResNet50-L3  | **77.0** | 3.57 | 1783 |
 | _BasicGEBD_  | ResNet50-L2  | **76.8** | 2.08 | 2325 |
