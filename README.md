@@ -7,7 +7,7 @@
 In this paper, we experimentally reexamine the architecture of GEBD models and uncover several surprising findings. Firstly, we reveal that a concise GEBD baseline model already achieves promising performance without any sophisticated design. Secondly, we find that the common design of GEBD models using image-domain backbones can contain plenty of architecture redundancy, motivating us to gradually “modernize” each component to enhance efficiency. Thirdly, we show that the GEBD models using image-domain backbones conducting the spatiotemporal learning in a spatial-then-temporal greedy manner can suffer from a distraction issue, which might be the inefficient villain for the GEBD. Using a video-domain backbone to jointly conduct spatiotemporal modeling for GEBD is an effective solution for this issue. 
 The outcome of our exploration significantly outperforms the previous SOTA methods under the same backbone choice. 
 
-
+![fig1](https://github.com/zechuan2024/EffGEBD/blob/master/images/fig1.jpg)
 
 ## Preparing Kinetics-GEBD/TAPOS/SoccerNet Dataset
 Please refer to [GUIDE](https://github.com/zechuan2024/EffGEBD/blob/master/data/GUIDE.md) for preparing Kinetics-GEBD/TAPOS dataset in the following path:
