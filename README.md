@@ -24,7 +24,7 @@ pip install -r requirements.txt
 For example:`/workspace/EfficientGEBD/`
 
 ## Preparing Kinetics-GEBD/TAPOS/SoccerNet Dataset
-Please refer to [GUIDE](https://github.com/ZZC/EfficientGEBD/main/GUIDE.md) for preparing Kinetics-GEBD/TAPOS dataset in the following path:
+Please refer to [GUIDE](https://github.com/zechuan2024/EffGEBD/blob/master/data/GUIDE.md) for preparing Kinetics-GEBD/TAPOS dataset in the following path:
 `EfficientGEBD/data/`
 and preparing SoccerNet dataset in the following path:
 `EfficientGEBD/EffSoccerNet/data/`
