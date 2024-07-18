@@ -1,19 +1,33 @@
-﻿# Rethinking the Architecture Design for Efficient Generic Event  Boundary Detection
+# Rethinking the Architecture Design for Efficient Generic Event  Boundary Detection
 [Rethinking the Architecture Design for Efficient Generic Event Boundary Detection  ](https://openreview.net/forum?id=sA2a5a5O4g&referrer=%5Bthe%20profile%20of%20Zechuan%20Zhang%5D(%2Fprofile%3Fid%3D~Zechuan_Zhang2)) , ACM MM 2024
 
-[Ziwei Zheng](https://openreview.net/profile?id=~Ziwei_Zheng1 "~Ziwei_Zheng1"), [Zechuan Zhang](https://openreview.net/profile?id=~Zechuan_Zhang2 "~Zechuan_Zhang2"),[Yulin Wang](https://openreview.net/profile?id=~Yulin_Wang1 "~Yulin_Wang1"),[Shiji Song](https://openreview.net/profile?id=~Shiji_Song1 "~Shiji_Song1"),[Gao Huang](https://openreview.net/profile?id=~Gao_Huang1 "~Gao_Huang1"),[Le Yang](https://openreview.net/profile?id=~Le_Yang2 "~Le_Yang2")
-
+[Ziwei Zheng](https://github.com/Ziwei-Zheng?tab=repositories), [Zechuan Zhang](https://github.com/zechuan2024), [Yulin Wang](https://github.com/blackfeather-wang), Shiji Song, Gao Huang, [Le Yang](https://github.com/yangle15)
 ## Overview
 In this paper, we experimentally reexamine the architecture of GEBD models and uncover several surprising findings. Firstly, we reveal that a concise GEBD baseline model already achieves promising performance without any sophisticated design. Secondly, we find that the common design of GEBD models using image-domain backbones can contain plenty of architecture redundancy, motivating us to gradually “modernize” each component to enhance efficiency. Thirdly, we show that the GEBD models using image-domain backbones conducting the spatiotemporal learning in a spatial-then-temporal greedy manner can suffer from a distraction issue, which might be the inefficient villain for the GEBD. Using a video-domain backbone to jointly conduct spatiotemporal modeling for GEBD is an effective solution for this issue. 
 The outcome of our exploration significantly outperforms the previous SOTA methods under the same backbone choice. 
+![fig1](https://github.com/Ziwei-Zheng/EfficientGEBD/images/fig1.jpg)
+## Getting started
 
-![fig1](https://github.com/zechuan2024/EffGEBD/blob/master/images/fig1.jpg)
+1. git clone our repository, creating a python environment and activate it via the following command:
+```
+git clone https://github.com/Ziwei-Zheng/EfficientGEBD.git
+cd EfficientGEBD
+conda create --name EfficientGEBD python=3.10
+conda activate EfficientGEBD
+pip install -r requirements.txt
+```
+2. Download [config-files](https://drive.google.com/drive/folders/1B4gEWTVG3JR2KhLN4i7qZ2XM6e_Wx3Fh?usp=drive_link) , [CSN-pretrained](https://drive.google.com/drive/folders/1iaLFYMhwMEu3iaZK8aMAER572QcI7e-z?usp=drive_link)(including the configs and the checkpoints of CSN model) and make sure you have the following path: `EfficientGEBD/config-files/` and `EfficientGEBD/CSN-pretrained/`.
+3. Please note to modify the path: `/$PATH_TO_EfficientGEBD$/EfficientGEBD/` in 
+`/script/`, `/config-files/`,`/CSN-pretrained/`, `/datasets/`, `/EffSoccerNet/baseline.yaml/`,`/EffSoccerNet/EffSoccerNet_test.sh/`,
+`/EffSoccerNet/EffSoccerNet_train.sh/`,`/EffSoccerNet/extract_feats.py/`,
+`/EffSoccerNet/gebd_config.py/`,`/EffSoccerNet/main.py/`,`/modeling/backbone.py`, `/modeling/config.py`,  `/utils/generate_gt_tapos.py`, `/utils/vid2imgs_tapos.py`, `post_process.py`,`train.py` to your own path.
+For example:`/workspace/EfficientGEBD/`
 
 ## Preparing Kinetics-GEBD/TAPOS/SoccerNet Dataset
-Please refer to [GUIDE](https://github.com/zechuan2024/EffGEBD/blob/master/data/GUIDE.md) for preparing Kinetics-GEBD/TAPOS dataset in the following path:
+Please refer to [GUIDE](https://github.com/ZZC/EfficientGEBD/main/GUIDE.md) for preparing Kinetics-GEBD/TAPOS dataset in the following path:
 `EfficientGEBD/data/`
 and preparing SoccerNet dataset in the following path:
-`EfficientGEBD/EffSoccerNet/data`
+`EfficientGEBD/EffSoccerNet/data/`
 
 **a) Kinetics-GEBD Dataset** is frequently used in most previous works, which contains 54,691 videos randomly selected from Kinetics-400. You can click [Kinetics-GEBD](https://github.com/StanLei52/GEBD) for more details. Since the annotations for the test set are not publicly accessible, we conducted training on the training set and subsequently evaluated model performance using the validation set.
 
@@ -23,18 +37,6 @@ and preparing SoccerNet dataset in the following path:
 **c) SoccerNet Dataset** 
 SoccerNet-v2 is used as an additional benchmark for action spotting detection, which can be viewed as a sub-category of generic event boundaries.
 
-
-## Getting started
-1. Download [configs](https://drive.google.com/drive/folders/1_FvcIINdU4IXpUnTiMgSBnoYCxqY-BsS?usp=sharing) and [csn-ckpt](https://drive.google.com/drive/folders/12UVE-YpCm9nniZDJGBZbWEta2-4A3MRA?usp=sharing) and place them in `EfficientGEBD/`
-
-2. git clone our repository, creating a python environment and activate it via the following command:
-```
-git clone https://github.com/Ziwei-Zheng/EfficientGEBD.git
-cd EfficientGEBD
-conda create --name EfficientGEBD python=3.10
-conda activate EfficientGEBD
-pip install -r requirements.txt
-```
 
 ## Training scripts
 
@@ -83,6 +85,6 @@ If you find our work helps, please cite our paper:
 
 ## Contact
 
-This repo is maintained by . Questions and discussions are welcome via 
+
 
 ## Acknowledgement
